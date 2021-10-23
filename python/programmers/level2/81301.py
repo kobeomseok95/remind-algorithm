@@ -1,0 +1,32 @@
+def solution(string):
+    digitMap = {
+        'zero': 0,
+        'one': 1,
+        'two': 2,
+        'three': 3,
+        'four': 4,
+        'five': 5,
+        'six': 6,
+        'seven': 7,
+        'eight': 8,
+        'nine': 9
+    }
+    answer = ''
+    tmp = ''
+    for s in string:
+        if not s.isdigit():
+            tmp += s
+            if tmp in digitMap:
+                answer += str(digitMap[tmp])
+                tmp = ''
+        else:
+            answer += str(s)
+
+    return int(answer)
+
+
+if __name__ == "__main__":
+    print(solution("one4seveneight"))
+    print(solution("23four5six7"))
+    print(solution("2three45sixseven"))
+    print(solution("123"))
