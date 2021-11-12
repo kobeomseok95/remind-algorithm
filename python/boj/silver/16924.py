@@ -1,52 +1,48 @@
 import sys
+from collections import deque
 
 
-def calc_cross_max_size():
-    mini = min(n, m)
-    length = mini if mini % 2 != 0 else mini - 1
-    return length // 2
+def bfs(y, x):
+    q = deque()
+    for i in range(4):
+        ny, nx = y + dy[i], x + dx[i]
+        if 0 <= ny < n and 0 <= nx < m and maps[ny][nx] == '*':
+            q.append((ny, nx, i))
+        if len(q) == 4:
+            cross_star[y][x] = 1
+
+    size = 1
+    while len(q) == 4:
+        answer.append(str(y + 1) + " " + str(x + 1) + " " + str(size))
+        for i in range(4):
+            point = q.popleft()
+            cross_star[point[0]][point[1]] = 1
+            ny, nx = point[0] + dy[point[2]], point[1] + dx[point[2]]
+            if 0 <= ny < n and 0 <= nx < m and maps[ny][nx] == '*':
+                q.append((ny, nx, i))
+        size += 1
 
 
-def row_check(y, x, size):
-    for c in range(x - size, x + size + 1):
-        if maps[y][c] != '*':
-            return False
-    return True
+dy, dx = [-1, 1, 0, 0], [0, 0, -1, 1]
+n, m = map(int, sys.stdin.readline().strip().split())
+maps = [list(sys.stdin.readline().strip()) for _ in range(n)]
+star = 0
+answer = []
+cross_star = [[0 for _ in range(m)] for _ in range(n)]
 
+for i in range(n):
+    for j in range(m):
+        if maps[i][j] == '*':
+            star += 1
+            bfs(i, j)
 
-def column_check(y, x, size):
-    for r in range(y - size, y + size + 1):
-        if maps[r][x] != '*':
-            return False
-    return True
+star_sum = 0
+for i in range(n):
+    star_sum += sum(cross_star[i])
 
-
-def check_cross(y, x, size):
-    row = row_check(y, x, size)
-    column = column_check(y, x, size)
-    if row and column:
-        position.append((y + 1, x + 1, size))
-
-
-def confirm_cross_size(size):
-    for y in range(size, n - size):
-        for x in range(size, m - size):
-            check_cross(y, x, size)
-
-
-def counting():
-    cross_max_size = calc_cross_max_size()
-    for size in range(1, cross_max_size + 1):
-        confirm_cross_size(size)
-
-
-n, m = map(int, sys.stdin.readline().strip().split(' '))
-position = []
-maps = []
-for _ in range(n):
-    maps.append(list(sys.stdin.readline().strip()))
-
-counting()
-print(len(position) if len(position) > 0 else -1)
-for i in range(len(position)):
-    print(' '.join(map(str, position[i])))
+if len(answer) == 0 or star != star_sum:
+    print(-1)
+else:
+    print(len(answer))
+    for a in answer:
+        print(a)
