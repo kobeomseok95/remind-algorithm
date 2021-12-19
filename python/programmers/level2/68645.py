@@ -14,9 +14,3 @@ def solution(n):
             answer[y][x] = num
             num += 1
     return sum(answer, [])
-
-
-if __name__ == "__main__":
-    print(solution(4))
-    print(solution(5))
-    print(solution(6))
