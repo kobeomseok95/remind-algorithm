@@ -2,7 +2,7 @@ package com.coding.programmers.level3;
 
 import java.util.Arrays;
 
-public class Main32861 {
+class Main32861 {
 
     static class Parents {
         int[] parents;
