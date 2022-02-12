@@ -34,9 +34,6 @@ class Main5014 {
             if (current == G) {
                 return String.valueOf(visit[current] - 1);
             }
-
-            // TODO: 2022/02/11 kobeomseok95 next(up, down) < F (X) / next(up, down) <= F (O)
-            // TODO: 2022/02/11 kobeomseok95 그래야 current == G 부분에서 정답을 찾을 수 있기 때문
             int up = current + U;
             if (1 <= up && up <= F && visit[up] == 0) {
                 visit[up] = visit[current] + 1;
