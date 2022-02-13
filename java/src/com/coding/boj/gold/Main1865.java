@@ -84,14 +84,6 @@ class Main1865 {
                 break;
             }
         }
-
-        if (isUpdate) {
-            for (Road road : roads) {
-                if (dist[road.end] > dist[road.start] + road.cost) {
-                    isUpdate = true;
-                }
-            }
-        }
         return isUpdate;
     }
 }
