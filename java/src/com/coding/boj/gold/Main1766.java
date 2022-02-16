@@ -17,6 +17,13 @@ class Main1766 {
         N = Integer.parseInt(tokenizer.nextToken());
         M = Integer.parseInt(tokenizer.nextToken());
         List<Integer>[] edges = initEdges();
+        int[] indegree = initIndegree(edges);
+        topologySort(edges, indegree);
+
+        System.out.println(stringBuilder.toString());
+    }
+
+    private static int[] initIndegree(List<Integer>[] edges) throws IOException {
         int[] indegree = new int[N + 1];
         for (int i = 0; i < M; i++) {
             tokenizer = new StringTokenizer(READER.readLine());
@@ -25,8 +32,7 @@ class Main1766 {
             edges[A].add(B);
             indegree[B] += 1;
         }
-        topologySort(edges, indegree);
-        System.out.println(stringBuilder.toString());
+        return indegree;
     }
 
     private static List<Integer>[] initEdges() {
