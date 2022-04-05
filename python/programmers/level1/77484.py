@@ -1,18 +1,12 @@
 def solution(lottos, win_nums):
-    rank_dict = {
-        6: 1,
-        5: 2,
-        4: 3,
-        3: 4,
-        2: 5,
-        1: 6,
-        0: 6
-    }
-    lottosSet = set(lottos)
-    winNumsSet = set(win_nums)
-    intersectCount = len(lottosSet.intersection(winNumsSet))
-    zeroCount = lottos.count(0)
-    return [rank_dict[intersectCount + zeroCount], rank_dict[intersectCount]]
+    rank = [6, 6, 5, 4, 3, 2, 1]
+    zero_count = lottos.count(0)
+    correct_count = 0
+    for lotto in lottos:
+        if lotto in win_nums:
+            correct_count += 1
+
+    return [rank[zero_count + correct_count], rank[correct_count]]
 
 
 if __name__ == "__main__":
