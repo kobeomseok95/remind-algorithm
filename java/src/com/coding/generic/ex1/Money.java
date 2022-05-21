@@ -1,4 +1,4 @@
-package com.coding.generic;
+package com.coding.generic.ex1;
 
 public abstract class Money {
     protected int amount;

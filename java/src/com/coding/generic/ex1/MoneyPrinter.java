@@ -1,10 +1,10 @@
-package com.coding.generic;
+package com.coding.generic.ex1;
 
 import java.util.List;
 
 public class MoneyPrinter {
 
-    public static void print(List<? extends Money> moneyList) {
+    public void print(List<? extends Money> moneyList) {
         moneyList.forEach(it ->
                 System.out.println(it.getAmount())
         );

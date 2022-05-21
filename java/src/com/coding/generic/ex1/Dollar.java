@@ -1,4 +1,4 @@
-package com.coding.generic;
+package com.coding.generic.ex1;
 
 public class Dollar extends Money {
 
