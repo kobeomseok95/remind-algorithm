@@ -9,10 +9,3 @@ def solution(word):
             dictionary.append(''.join(prod))
     dictionary.sort()
     return dictionary.index(word) + 1
-
-
-if __name__ == "__main__":
-    print(solution("AAAAE"))
-    print(solution("AAAE"))
-    print(solution("I"))
-    print(solution("EIO"))
