@@ -24,9 +24,3 @@ def is_prime(n):
         if n % i == 0:
             return False
     return True
-
-
-if __name__ == "__main__":
-    print(solution(437674, 3))
-    print(solution(110011, 10))
-    print(solution(36, 3))
