@@ -21,8 +21,3 @@ def bfs(computers, visit, n, point):
             if cur != i and computers[cur][i] == 1 and not visit[i]:
                 q.append(i)
                 visit[i] = True
-
-
-if __name__ == "__main__":
-    print(solution(3, [[1, 1, 0], [1, 1, 0], [0, 0, 1]]))
-    print(solution(3, [[1, 1, 0], [1, 1, 1], [0, 1, 1]]))
