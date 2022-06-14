@@ -8,10 +8,10 @@ public class CallByValueMain {
     private static void method() {
         Person person = new Person(20, "고범석");
         System.out.println(System.identityHashCode(person));
-        System.out.println("Before call, age = " + person.age + ", name = " + person.name);
-        call(person);
+        System.out.println("[Before] call, age = " + person.age + ", name = " + person.name);
+        change(person);
         System.out.println(System.identityHashCode(person));
-        System.out.println("After call, age = " + person.age + ", name = " + person.name);
+        System.out.println("[After] call, age = " + person.age + ", name = " + person.name);
 
 //        int a = 10;
 //        int b = 20;
@@ -28,17 +28,18 @@ public class CallByValueMain {
 //        System.out.println("After call, age = " + person.age + ", name = " + person.name);
     }
 
-    private static void call(Person a) {
+    private static void change(Person person) {
 //        aa = 40;
 //        bb = 50;
 //        System.out.println("Inside aa : " + System.identityHashCode(aa));
 //        System.out.println("Inside bb : " + System.identityHashCode(bb));
 //        System.out.println("Inside aa : " + aa);
 //        System.out.println("Inside bb : " + bb);
-        System.out.println(System.identityHashCode(a));
-        a.age = 30;
-        a.name = "김범석";
-        System.out.println("call, age = " + a.age + ", name = " + a.name);
+        //person = new Person(28, "박범석");
+        person.age = 40;
+        person.name = "고오범석";
+        System.out.println(System.identityHashCode(person));
+        System.out.println("[Inside] call, age = " + person.age + ", name = " + person.name);
     }
 }
 
