@@ -7,9 +7,9 @@ public class EqualsAndHashCodeMain {
     public static void main(String[] args) {
         Member member1 = new Member(1L, "고범석");
         Member member2 = new Member(1L, "고범석");
-        Set<Member> memberSet = new HashSet<>();
-        memberSet.add(member1);
-        memberSet.add(member2);
-        System.out.println(memberSet.size());
+        Set<Member> set = new HashSet<>();
+        set.add(member1);
+        set.add(member2);
+        System.out.println(set.size());
     }
 }
