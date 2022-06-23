@@ -2,13 +2,7 @@ package com.coding.statics;
 
 public class StaticMain {
     public static void main(String[] args) {
-        StaticSample sample = new StaticSample("anotherName");
-        System.out.println(System.identityHashCode(StaticSample.staticName));
-        System.out.println(System.identityHashCode(StaticSample.integer));
 
-        sample.change();
-        System.out.println(System.identityHashCode(StaticSample.staticName));
-        System.out.println(System.identityHashCode(StaticSample.integer));
     }
 }
 
